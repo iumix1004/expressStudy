@@ -1,6 +1,16 @@
 extends ./layouts/common
 
 block content
+    h1 Add new user
+    if errors
+        each error in errors
+            .alert.alert-danger= error
+
     form(action="/users/add", method="POST")
-        input(name="name", type="text")
-        button Add
+        .form-group
+            label(for="name").mr-5 Name: 
+            input#name.form-control(name="name", type="text", value=values ? values.name : "")
+        .form-group    
+            label(for="phone").mr-5 Phone: 
+            input#name.form-control(name="phone", type="text", value=values ? values.phone : "")
+        button.btn.btn-primary.ml-2 Add

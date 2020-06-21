@@ -1,6 +1,11 @@
-form(action="/todos/search", method="GET") 
+form(action="/users/search", method="GET") 
     input(type="text", name="q")
     button Search
 ul
-    each todo in todos
-        li= todo.name
+    each user in users
+        li 
+            span= user.name
+            span &nbsp;
+            a(href='/users/' + user.id) View
+
+a(href="/users/add") Add user
